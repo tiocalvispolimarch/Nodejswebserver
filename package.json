@@ -1,0 +1,14 @@
+{
+  "name": "nodejswebserver",
+  "version": "1.0.0",
+  "description": "CAN bus DATOS  Saul Luna Minor ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saul Luna Minor",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
