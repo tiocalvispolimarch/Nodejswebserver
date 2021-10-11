@@ -75,7 +75,7 @@
         google.charts.load("current", {packages:["imagelinechart"]});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
-            let data = google.visualization.arrayToDataTable(<?php echo  $jsonTable; ?>);
+            let data = google.visualization.arrayToDataTable(<?=$jsonTable?>);
             let chart = new google.visualization.ImageLineChart(document.getElementById('chart_div'));
             let options = {'title':'Sensor Readings', 'showCategoryLabels':false, 'min':0};
             chart.draw(data, options);
