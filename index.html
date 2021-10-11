@@ -39,22 +39,6 @@
             <th>Date (GMT or Iceland Time)</th>
             <th>Reading</th>
         </tr>
-        <?php
-            $selectDay = 0;
-            if (isset($_GET['selectDay2']) && $_GET['selectDay2']!="") {
-                $selectDay=strtotime($_GET['selectDay2']);
-            } else {
-                $selectDay=time()-43200;
-            }
-            $nextDay = $selectDay+86400;
-            $db = new PDO('sqlite:readingsDB.sqlite');
-            $query = "SELECT * FROM readings Where date  BETWEEN " .$selectDay." AND ".$nextDay." ORDER BY date DESC";
-            $result = $db->query($query);
-            foreach($result as $row) {
-                print "<tr><td>".date('d/m/Y H:i:s', $row['date'])."</td>";
-                print "<td>".$row['distance']."</td></tr>";
-            }
-        ?>
-  
+        
 </body>
 </html>
