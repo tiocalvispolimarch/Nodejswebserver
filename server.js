@@ -5,3 +5,4 @@ document.body.innerHTML = "<h2>Time right now is:  " + d.getHours() + ":" + d.ge
 "</h2>";
 
 
+console.log("Hello world!");
