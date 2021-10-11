@@ -55,31 +55,6 @@
                 print "<td>".$row['distance']."</td></tr>";
             }
         ?>
-    </table>
-    <?php
-        $query = "SELECT * FROM readings Where date  BETWEEN " .$selectDay." AND ".$nextDay." ORDER BY date ASC";
-        $result = $db->query($query);
-        $rows[][] = array();        
-        $rows[0][0] = "Date";
-        $rows[0][1] = "Sensor Readings";
-        $count=1;
-        foreach($result as $row) {
-            $rows[$count][0] = date('H:i', $row['date']);
-            $rows[$count][1] = intval($row["distance"]);
-            $count++;
-        }
-        $jsonTable = json_encode($rows);
-    ?>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load("current", {packages:["imagelinechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            let data = google.visualization.arrayToDataTable($jsonTable);
-            let chart = new google.visualization.ImageLineChart(document.getElementById('chart_div'));
-            let options = {'title':'Sensor Readings', 'showCategoryLabels':false, 'min':0};
-            chart.draw(data, options);
-        }
-    </script>
+  
 </body>
 </html>
