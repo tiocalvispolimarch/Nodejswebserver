@@ -16,4 +16,6 @@ app.listen(PORT, _ =>{
     console.log( `Aplicacion desarrollada en el puerto ${PORT}` );
 });
 
+let d = new Date();
+document.body.innerHTML = "<h1>Time right now is:  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()</h1>"
 
