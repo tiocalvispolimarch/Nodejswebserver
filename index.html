@@ -23,10 +23,22 @@
 <body>
     <h1>Datos CAN bus tu padre 2021</h1>
   
-   <script type="text/javascript">
-    var some_variable = '<?=$_POST['distance']?>'; // That's for a string
-</script>
-    <script>console.log(some_variable);</script> 
+ 
+    <script>
+        fetch("/robots.txt")
+  .then(response => {
+    if (response.ok)
+      return response.text()
+    else
+      throw new Error(response.status);
+  })
+  .then(data => {
+    console.log("Datos: " + data);
+  })
+  .catch(err => {
+    console.error("ERROR: ", err.message)
+  });    
+    </script> 
         
 </body>
 </html>
