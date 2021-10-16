@@ -25,7 +25,7 @@
       const analytics = getAnalytics(app);
     
 
-const data = firebase.database();
+const data = app.database();
 //Obtener una referencia a la raíz de la base de datos
 let refToData = data.ref()
 //Obtener una console.log de todos los datos 
