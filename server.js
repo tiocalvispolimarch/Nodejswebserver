@@ -28,6 +28,7 @@
       const analytics = getAnalytics(app);
     
    
+
       import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
 
       const dbRef = ref(getDatabase());
@@ -41,7 +42,3 @@
         console.error(error);
       });
 
-let d = new Date();
-document.body.innerHTML = "<h2>Time right now is:  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-"</h2>";
-console.log("Hello world!");
