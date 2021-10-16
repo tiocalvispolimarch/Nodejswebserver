@@ -1,12 +1,4 @@
-
-
-let d = new Date();
-document.body.innerHTML = "<h2>Time right now is:  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
-"</h2>";
-
-
-
-      // Import the functions you need from the SDKs you need
+     // Import the functions you need from the SDKs you need
       import  initializeApp  from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
       import  getAnalytics  from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
 
@@ -41,5 +33,7 @@ dataRef.once('value', snapshot => {
   console.log(snapshot.val());
 });
 
-
+let d = new Date();
+document.body.innerHTML = "<h2>Time right now is:  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+"</h2>";
 console.log("Hello world!");
