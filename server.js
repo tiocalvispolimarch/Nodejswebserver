@@ -20,7 +20,8 @@
         storageBucket: "pruebacanbus.appspot.com",
         messagingSenderId: "391775351194",
         appId: "1:391775351194:web:3ac9a2a73675f21c9dca23",
-        measurementId: "G-1ZVR73393X"
+        measurementId: "G-1ZVR73393X",
+        userId:2
       };
     
       // Initialize Firebase
