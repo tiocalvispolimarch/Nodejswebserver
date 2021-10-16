@@ -26,7 +26,8 @@
     
    
       
-      const dbRef = ref(getDatabase());
+
+      const dbRef = getDatabase(app);
       get(child(dbRef, `users/${userId}`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
