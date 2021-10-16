@@ -23,15 +23,18 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
-    
-    firebase.initializeApp(firebaseConfig);
-const data = firebase.database();
-//Obtener una referencia a la raíz de la base de datos
-let refToData = data.ref()
-//Obtener una console.log de todos los datos 
-dataRef.once('value', snapshot => {
-  console.log(snapshot.val());
-});
+      import { getDatabase, ref, child, get } from "firebase/database";
+
+      const dbRef = ref(getDatabase());
+      get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });
 
 let d = new Date();
 document.body.innerHTML = "<h2>Time right now is:  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
