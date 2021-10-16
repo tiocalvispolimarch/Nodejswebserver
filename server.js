@@ -31,7 +31,7 @@
       import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
 
       const dbRef = ref(getDatabase());
-      get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+      get(child(dbRef, `datos_auto/`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
         } else {
