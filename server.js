@@ -1,6 +1,8 @@
      // Import the functions you need from the SDKs you need
       import {initializeApp}  from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
       import  {getAnalytics}  from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
+      import { getDatabase, ref, child, get } from "firebase/database";
+
 
       //import {  } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
       //import {  } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-analytics.js";
@@ -27,7 +29,7 @@
    
       
 
-      const dbRef = getDatabase(app);
+      const dbRef = ref(getDatabase());
       get(child(dbRef, `users/${userId}`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
