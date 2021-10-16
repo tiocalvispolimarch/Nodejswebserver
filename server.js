@@ -23,6 +23,8 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
+    
+   
       import { getDatabase, ref, child, get } from "firebase/database";
 
       const dbRef = ref(getDatabase());
