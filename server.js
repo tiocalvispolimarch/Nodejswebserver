@@ -25,8 +25,7 @@
       const analytics = getAnalytics(app);
     
    
-      import { getDatabase, ref, child, get } from "firebase/database";
-
+      
       const dbRef = ref(getDatabase());
       get(child(dbRef, `users/${userId}`)).then((snapshot) => {
         if (snapshot.exists()) {
