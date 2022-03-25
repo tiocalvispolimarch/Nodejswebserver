@@ -109,10 +109,10 @@
 		tbody.appendChild(trow);
 	}
 
-		function AddAllItemsToTable(datos_auto){
+		function AddAllItemsToTable(datosauto){
 			stdNO = 0;
 			tbody.innerHTML = "";
-			datos_auto.forEach(element => {
+			datosauto.forEach(element => {
 				AddAllItemsToTable(element.ID_Auto,element.Identificador,element.Modo,element.Bytes_adicionales,element.PID,element.Byte_A,element.Byte_B,element.ByteC,element.ByteD,element.Dato8,element.Hora,element.GPS)
 			});
 		}
@@ -159,6 +159,7 @@
 				autos.push(childSnapshot.val());
 			});
 			AddAllItemsToTable(autos); 
+			
 		 });
 
 
