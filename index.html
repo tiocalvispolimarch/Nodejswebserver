@@ -48,42 +48,79 @@
 		padding:5px;
 	}
 </style>
-<table class="demo">
-	<caption>Datos CAN bus 2022</caption>
-	<thead>
-	<tr>
-		<th>ID_Auto</th>
-		<th>Identificador</th>
-		<th>Modo 1</th>
-		<th>Bytes adicionales</th>
-		<th>PID</th>
-		<th>Byte A</th>
-		<th>Byte B</th>
-		<th>Byte C</th>
-		<th>Byte D</th>
-		<th>Dato 8</th>
-		<th>Hora de captura</th>
-		<th>GPS</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td>&nbsp;001</td>
-		<td>&nbsp;0x7df</td>
-		<td>&nbsp;0x01</td>
-		<td>0x03&nbsp;</td>
-		<td>&nbsp;0x55</td>
-		<td>&nbsp;0x55</td>
-		<td>&nbsp;0x55</td>
-		<td>&nbsp;0x55</td>
-		<td>&nbsp;0x55</td>
-		<td>&nbsp;0x55</td>
-		<td>04:05:00&nbsp;</td>
-		<td>"1900.180818,N,09812.167928,W,030322,231853.0,21..."&nbsp;</td>
-	</tr>
+<div>
+	<table class="demo">
+		<caption>Datos CAN bus 2022</caption>
+		<thead>
+		
+			<th>Número</th>
+			<th>ID_Auto</th>
+			<th>Identificador</th>
+			<th>Modo 1</th>
+			<th>Bytes adicionales</th>
+			<th>PID</th>
+			<th>Byte A</th>
+			<th>Byte B</th>
+			<th>Byte C</th>
+			<th>Byte D</th>
+			<th>Dato 8</th>
+			<th>Hora de captura</th>
+			<th>GPS</th>
+		</thead>
+		<tbody id="tbody1"></tbody>
+	</table>
+	
 
-	</tbody>
-</table>
+</div>
+
+<script>
+   var  stdNO = 0;
+   var  tbody = document.getElementById('tbody1');
+	function AddItemToTable(ID_Auto,Identificador,Modo,Bytes_adicionales,PID,ByteA,ByteB,ByteC,ByteD,Dato8,Hora,GPS){
+		let trow = document.createElement("trow");
+		let td1 = document.createElement('td');
+		let td2 = document.createElement('td');
+		let td3 = document.createElement('td');
+		let td4 = document.createElement('td');
+		let td5 = document.createElement('td');
+		let td6 = document.createElement('td');
+
+		td1.innerHTML = ++stdNo;
+		td2.innerHTML = ID_Auto;
+		td3.innerHTML = Identificador;
+		td4.innerHTML = Bytes_adicionales;
+		td5.innerHTML = ByteA;
+		td6.innerHTML = ByteB;
+		td7.innerHTML = ByteC;
+		td8.innerHTML = ByteD;
+		td9.innerHTML = Hora;
+		td10.innerHTML = GPS;
+
+		trow.appendChild(td1);
+		trow.appendChild(td2);
+		trow.appendChild(td3);
+		trow.appendChild(td4);
+		trow.appendChild(td5);
+		trow.appendChild(td6);
+		trow.appendChild(td7);
+		trow.appendChild(td8);
+		trow.appendChild(td9);
+		trow.appendChild(td10);
+		tbody.appendChild(trow);
+	}
+
+		function AddAllItemsToTable(datos_auto){
+			stdNO = 0;
+			tbody.innerHTML = "";
+			datos_auto.forEach(element => {
+				AddAllItemsToTable(element.ID_Auto,element.Identificador,element.Modo,element.Bytes_adicionales,element.PID,element.Byte_A,element.Byte_B,element.ByteC,element.ByteD,element.Dato8,element.Hora,element.GPS)
+			});
+		}
+
+	
+	}
+</script>
+
 
 </body>
 </html>
