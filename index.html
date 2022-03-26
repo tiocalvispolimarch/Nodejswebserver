@@ -96,12 +96,13 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-    
+   
+  import * as firebase from 'firebase'; 
   import { getDatabase, ref, child, get } 
   from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 
-
-  var rootRef = firebase.database().ref();
+  
+  const dbRef = ref(getDatabase());
 
    var  stdNO = 0;
    var  tbody = document.getElementById('tbody1');
