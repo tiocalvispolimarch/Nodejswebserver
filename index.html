@@ -64,7 +64,6 @@
 			<th>Byte C</th>
 			<th>Byte D</th>
 			<th>Dato 8</th>
-			<th>Hora de captura</th>
 			<th>GPS</th>
 		</thead>
 		<tbody id="tbody1"></tbody>
@@ -74,51 +73,9 @@
 </div>
 
 <script  type="module">
-   var  stdNO = 0;
-   var  tbody = document.getElementById('tbody1');
-	function AddItemToTable(ID_Auto,Identificador,Modo,Bytes_adicionales,PID,ByteA,ByteB,ByteC,ByteD,Dato8,Hora,GPS){
-		let trow = document.createElement("trow");
-		let td1 = document.createElement('td');
-		let td2 = document.createElement('td');
-		let td3 = document.createElement('td');
-		let td4 = document.createElement('td');
-		let td5 = document.createElement('td');
-		let td6 = document.createElement('td');
 
-		td1.innerHTML = ++stdNo;
-		td2.innerHTML = ID_Auto;
-		td3.innerHTML = Identificador;
-		td4.innerHTML = Bytes_adicionales;
-		td5.innerHTML = ByteA;
-		td6.innerHTML = ByteB;
-		td7.innerHTML = ByteC;
-		td8.innerHTML = ByteD;
-		td9.innerHTML = Hora;
-		td10.innerHTML = GPS;
-
-		trow.appendChild(td1);
-		trow.appendChild(td2);
-		trow.appendChild(td3);
-		trow.appendChild(td4);
-		trow.appendChild(td5);
-		trow.appendChild(td6);
-		trow.appendChild(td7);
-		trow.appendChild(td8);
-		trow.appendChild(td9);
-		trow.appendChild(td10);
-		tbody.appendChild(trow);
-	}
-
-		function AddAllItemsToTable(Datosauto){
-			stdNO = 0;
-			tbody.innerHTML = "";
-			Datosauto.forEach(element => {
-				AddAllItemsToTable(element.ID_Auto,element.Identificador,element.Modo,element.Bytes_adicionales,element.PID,element.Byte_A,element.Byte_B,element.ByteC,element.ByteD,element.Dato8,element.Hora,element.GPS);
-			});
-		}
-
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+   // Import the functions you need from the SDKs you need
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -146,7 +103,90 @@
   
   const dbRef = ref(getDatabase());
 
-	function GetAllDataOnce(){
+   var  stdNO = 0;
+   var  tbody = document.getElementById('tbody1');
+	function AddItemToTable(ID_Auto,Identificador,Modo,Bytes_adicionales,PID,ByteA,ByteB,ByteC,ByteD,Dato8,GPS){
+		let trow = document.createElement("trow");
+		let td1 = document.createElement('td');
+		let td2 = document.createElement('td');
+		let td3 = document.createElement('td');
+		let td4 = document.createElement('td');
+		let td5 = document.createElement('td');
+		let td6 = document.createElement('td');
+		let td7 = document.createElement('td');
+		let td8 = document.createElement('td');
+		let td9 = document.createElement('td');
+	
+
+		td1.innerHTML = ++stdNo;
+		td2.innerHTML = ID_Auto;
+		td3.innerHTML = Identificador;
+		td4.innerHTML = Modo;
+		td5.innerHTML = Bytes_adicionales;
+		td6.innerHTML = ByteA;
+		td7.innerHTML = ByteB;
+		td8.innerHTML = ByteC;
+		td9.innerHTML = ByteD;
+		td10.innerHTML = Dato8;
+		td11.innerHTML = GPS;
+		
+
+		trow.appendChild(td1);
+		trow.appendChild(td2);
+		trow.appendChild(td3);
+		trow.appendChild(td4);
+		trow.appendChild(td5);
+		trow.appendChild(td6);
+		trow.appendChild(td7);
+		trow.appendChild(td8);
+		trow.appendChild(td9);
+		trow.appendChild(td10);
+		trow.appendChild(td1);
+		tbody.appendChild(trow);
+	}
+
+
+		function SelectAllData(){
+			firebase.database().ref('datos_auto').once('value',
+				function(AllRecords) {
+      				AllRecords.forEach(
+        				function(CurrentRecord) {
+							var ID_Auto = CurrentRecord.val().ID_Auto;
+							var Identificador = CurrentRecord.val().Identificador;
+							var Modo = CurrentRecord.val().Modo;
+							var Bytes_adicionales = CurrentRecord.val().Bytes_adicionales;
+							var PID = CurrentRecord.val().PID;
+							var ByteA = CurrentRecord.val().Byte_A;
+							var ByteB = CurrentRecord.val().Byte_B;
+							var ByteC = CurrentRecord.val().Byte_C;
+							var ByteD = CurrentRecord.val().Byte_D;
+							var Dato8 = CurrentRecord.val().Dato8;
+							var GPS = CurrentRecord.val().GPS;
+			
+			  AddItemsToTable(ID_Auto,Identificador,Modo,Bytes_adicionales,
+			  PID,ByteA,ByteB,ByteC,ByteD,Dato8,GPS);
+
+									}				
+								);
+							});
+						}
+		
+
+
+
+	/*	function AddAllItemsToTable(Datosauto){
+			stdNO = 0;
+			tbody.innerHTML = "";
+			Datosauto.forEach(element => {
+				AddAllItemsToTable(element.ID_Auto,element.Identificador,element.Modo,
+				element.Bytes_adicionales,element.PID,element.Byte_A,element.Byte_B,
+				element.ByteC,element.ByteD,element.Dato8,element.Hora,element.GPS);
+			});
+		}*/
+
+
+
+	/*function GetAllDataOnce(){
 	
 		
 
@@ -164,7 +204,7 @@
 
 
 	}
-
+*/
 	get(child(dbRef, `datos_auto/`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
@@ -176,7 +216,7 @@
       });
 
 
-	window.onload = GetAllDataOnce;
+	window.onload = SelectAllData;
 	
 	
 </script>
