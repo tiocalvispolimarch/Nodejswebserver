@@ -194,22 +194,28 @@
   const dbRef = ref(getDatabase());
 
 
-	async function GetAllDataOnce(){
-	const querySnapshot = await getDocs(collection(dbRef,"datos_auto"));
-		
+	function GetAllDataOnce(){
+	  getDocs(child(dbRef,"datos_auto"))
+	  .then((snapshot) => {
 
+		var autos = [];
 
-			var autos = [];
-
-			querySnapshot.forEach( doc => {
-				autos.push( doc.data());
+			snapshot.forEach( childSnapshot => {
+				autos.push( childSnapshot.val());
 			});
 			AddAllItemsToTable(autos); 
+
+
+	  });
+	}	
+
+
+			
 			
 		 
 
 
-	}
+	
 
 	get(child(dbRef, `datos_auto/`)).then((snapshot) => {
         if (snapshot.exists()) {
