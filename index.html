@@ -195,7 +195,8 @@
 
 
 	function GetAllDataOnce(){
-	  getDocs(child(dbRef,"datos_auto"))
+
+	  get(child(dbRef,"datos_auto"))
 	  .then((snapshot) => {
 
 		var autos = [];
