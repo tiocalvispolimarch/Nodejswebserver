@@ -113,9 +113,10 @@ import { getDatabase, ref, child, get  }
   
   const dbRef = ref(getDatabase());
 	
+  var database = firebase.database(); 
 
   function SelectAllData(){
-			firebase.database().ref('datos_auto').once('value',
+			database().ref('datos_auto').once('value',
 				function(AllRecords) {
       				AllRecords.forEach(
         				function(CurrentRecord) {
