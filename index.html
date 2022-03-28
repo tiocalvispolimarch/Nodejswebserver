@@ -111,9 +111,9 @@ import { getDatabase, ref, child, get  }
   
 
   
-  const dbRef = ref(getDatabase());
+  //const dbRef = ref(getDatabase());
 	
-
+  var dbRef = firebase.database(); 
 
   function SelectAllData(){
 			dbRef.ref('datos_auto').once('value',
