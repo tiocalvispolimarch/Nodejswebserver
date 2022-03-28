@@ -149,10 +149,10 @@
 */
 
 
-		function AddAllItemsToTable(Datosauto){
+		function AddAllItemsToTable(datos_auto){
 			stdNO = 0;
 			tbody.innerHTML = "";
-			Datosauto.forEach(element => {
+			datos_auto.forEach(element => {
 				AddAllItemsToTable(element.ID_Auto,element.Identificador,element.Modo,
 				element.Bytes_adicionales,element.PID,element.Byte_A,element.Byte_B,
 				element.ByteC,element.ByteD,element.Dato8,element.Hora,element.GPS);
