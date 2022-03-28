@@ -72,11 +72,75 @@
 
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.2/firebase-app.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.2/firebase-auth.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.2/firebase-database.js"></script>
 
 
 
 <script  type="module">
+
 	
+import { getDatabase, ref, child, get  } 
+  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+   // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBrovLUtIff15JyTx_7FbifhO5QBA2YKgM",
+    authDomain: "pruebacanbus.firebaseapp.com",
+    databaseURL: "https://pruebacanbus-default-rtdb.firebaseio.com",
+    projectId: "pruebacanbus",
+    storageBucket: "pruebacanbus.appspot.com",
+    messagingSenderId: "391775351194",
+    appId: "1:391775351194:web:3ac9a2a73675f21c9dca23",
+    measurementId: "G-1ZVR73393X"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+   
+  //import firebase from 'firebase'
+  
+
+  
+  const dbRef = ref(getDatabase());
+	
+
+  function SelectAllData(){
+			firebase.database.ref('datos_auto').once('value',
+				function(AllRecords) {
+      				AllRecords.forEach(
+        				function(CurrentRecord) {
+							var ID_Auto = CurrentRecord.val().ID_Auto;
+							var Identificador = CurrentRecord.val().Identificador;
+							var Modo = CurrentRecord.val().Modo;
+							var Bytes_adicionales = CurrentRecord.val().Bytes_adicionales;
+							var PID = CurrentRecord.val().PID;
+							var ByteA = CurrentRecord.val().Byte_A;
+							var ByteB = CurrentRecord.val().Byte_B;
+							var ByteC = CurrentRecord.val().Byte_C;
+							var ByteD = CurrentRecord.val().Byte_D;
+							var Dato8 = CurrentRecord.val().Dato8;
+							var GPS = CurrentRecord.val().GPS;
+			
+			  AddItemsToTable(ID_Auto,Identificador,Modo,Bytes_adicionales,
+			  PID,ByteA,ByteB,ByteC,ByteD,Dato8,GPS);
+
+									}				 
+								);
+							});
+						}
+
+
+
 
    var  stdNO = 0;
    var  tbody = document.getElementById('tbody1');
@@ -121,34 +185,7 @@
 	}
 
 
-	/*	function SelectAllData(){
-			firebase.database.ref('datos_auto').once('value',
-				function(AllRecords) {
-      				AllRecords.forEach(
-        				function(CurrentRecord) {
-							var ID_Auto = CurrentRecord.val().ID_Auto;
-							var Identificador = CurrentRecord.val().Identificador;
-							var Modo = CurrentRecord.val().Modo;
-							var Bytes_adicionales = CurrentRecord.val().Bytes_adicionales;
-							var PID = CurrentRecord.val().PID;
-							var ByteA = CurrentRecord.val().Byte_A;
-							var ByteB = CurrentRecord.val().Byte_B;
-							var ByteC = CurrentRecord.val().Byte_C;
-							var ByteD = CurrentRecord.val().Byte_D;
-							var Dato8 = CurrentRecord.val().Dato8;
-							var GPS = CurrentRecord.val().GPS;
-			
-			  AddItemsToTable(ID_Auto,Identificador,Modo,Bytes_adicionales,
-			  PID,ByteA,ByteB,ByteC,ByteD,Dato8,GPS);
-
-									}				 
-								);
-							});
-						}
-		
-
-
-
+	/*
 		function AddAllItemsToTable(datos_auto){
 			stdNO = 0;
 			tbody.innerHTML = "";
@@ -158,40 +195,8 @@
 				element.ByteC,element.ByteD,element.Dato8,element.Hora,element.GPS);
 			});
 		}
-		*/
+		
 
- import { getDatabase, ref, child, get  } 
-  from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
-
-   // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-  
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBrovLUtIff15JyTx_7FbifhO5QBA2YKgM",
-    authDomain: "pruebacanbus.firebaseapp.com",
-    databaseURL: "https://pruebacanbus-default-rtdb.firebaseio.com",
-    projectId: "pruebacanbus",
-    storageBucket: "pruebacanbus.appspot.com",
-    messagingSenderId: "391775351194",
-    appId: "1:391775351194:web:3ac9a2a73675f21c9dca23",
-    measurementId: "G-1ZVR73393X"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-   
-  //import firebase from 'firebase'
-  
-
-  
-  const dbRef = ref(getDatabase());
 
 
 	function GetAllDataOnce(){
@@ -211,7 +216,7 @@
 	}	
 
 
-			
+			*/
 			
 		 
 
