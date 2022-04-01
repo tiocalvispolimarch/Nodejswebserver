@@ -71,7 +71,7 @@
 	
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.2/firebase-app.min.js"></script>
+
 
 
 
@@ -112,41 +112,29 @@ import { getDatabase, ref, child, get  }
   
   const dbRef = ref(getDatabase());
 	
-  //var dbRef = firebase.database(); 
-  /*
+  const db = ref(getDatabase());
+  	var  stdNo = 0;	
+     
+get(child(db, `datos_auto/`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+          snapshot.forEach(function(data)
+        {
+   
+   		var  tbody = document.getElementById('tbody1');
+		var ID_Auto = data.val().ID_Auto;
+		var Identificador = data.val().Identificador;
+		var Modo = data.val().Modo;
+		var Bytes_adicionales = data.val().Bytes_adicionales;
+		var PID = data.val().PID;
+		var ByteA = data.val().Byte_A;
+		var ByteB = data.val().Byte_B;
+		var ByteC = data.val().Byte_C;
+		var ByteD = data.val().Byte_D;
+		var Dato8 = data.val().Dato8;
+		var GPS = data.val().GPS;
 
-  function SelectAllData(){
-			dbRef.ref('datos_auto').once('value',
-				function(AllRecords) {
-      				AllRecords.forEach(
-        				function(CurrentRecord) {
-							var ID_Auto = CurrentRecord.val().ID_Auto;
-							var Identificador = CurrentRecord.val().Identificador;
-							var Modo = CurrentRecord.val().Modo;
-							var Bytes_adicionales = CurrentRecord.val().Bytes_adicionales;
-							var PID = CurrentRecord.val().PID;
-							var ByteA = CurrentRecord.val().Byte_A;
-							var ByteB = CurrentRecord.val().Byte_B;
-							var ByteC = CurrentRecord.val().Byte_C;
-							var ByteD = CurrentRecord.val().Byte_D;
-							var Dato8 = CurrentRecord.val().Dato8;
-							var GPS = CurrentRecord.val().GPS;
-			
-			  AddItemsToTable(ID_Auto,Identificador,Modo,Bytes_adicionales,
-			  PID,ByteA,ByteB,ByteC,ByteD,Dato8,GPS);
-
-									}				 
-								);
-							});
-						}
-
-
-
-
-   var  stdNO = 0;
-   var  tbody = document.getElementById('tbody1');
-	function AddItemToTable(ID_Auto,Identificador,Modo,Bytes_adicionales,PID,ByteA,ByteB,ByteC,ByteD,Dato8,GPS){
-		let trow = document.createElement("trow");
+   	    let trow = document.createElement('tr');
 		let td1 = document.createElement('td');
 		let td2 = document.createElement('td');
 		let td3 = document.createElement('td');
@@ -156,19 +144,23 @@ import { getDatabase, ref, child, get  }
 		let td7 = document.createElement('td');
 		let td8 = document.createElement('td');
 		let td9 = document.createElement('td');
-	
+  		let td10 = document.createElement('td');
+		let td11 = document.createElement('td');
+		let td12 = document.createElement('td');
+		
 
 		td1.innerHTML = ++stdNo;
 		td2.innerHTML = ID_Auto;
 		td3.innerHTML = Identificador;
 		td4.innerHTML = Modo;
 		td5.innerHTML = Bytes_adicionales;
-		td6.innerHTML = ByteA;
-		td7.innerHTML = ByteB;
-		td8.innerHTML = ByteC;
-		td9.innerHTML = ByteD;
-		td10.innerHTML = Dato8;
-		td11.innerHTML = GPS;
+		td6.innerHTML = PID;
+		td7.innerHTML = ByteA;
+		td8.innerHTML = ByteB;
+		td9.innerHTML = ByteC;
+		td10.innerHTML = ByteD;
+		td11.innerHTML = Dato8;
+		td12.innerHTML = GPS;
 		
 
 		trow.appendChild(td1);
@@ -181,55 +173,15 @@ import { getDatabase, ref, child, get  }
 		trow.appendChild(td8);
 		trow.appendChild(td9);
 		trow.appendChild(td10);
-		trow.appendChild(td1);
+		trow.appendChild(td11);
+		trow.appendChild(td12);
 		tbody.appendChild(trow);
-	}
+       
 
-
-	/*
-		function AddAllItemsToTable(datos_auto){
-			stdNO = 0;
-			tbody.innerHTML = "";
-			datos_auto.forEach(element => {
-				AddAllItemsToTable(element.ID_Auto,element.Identificador,element.Modo,
-				element.Bytes_adicionales,element.PID,element.Byte_A,element.Byte_B,
-				element.ByteC,element.ByteD,element.Dato8,element.Hora,element.GPS);
-			});
-		}
-		
-
-
-
-	function GetAllDataOnce(){
-
-	  get(child(dbRef,"datos_auto"))
-	  .then((snapshot) => {
-
-		var autos = [];
-
-			snapshot.forEach( childSnapshot => {
-				autos.push( childSnapshot.val());
-			});
-			AddAllItemsToTable(autos); 
-
-
-	  });
-	}	
-
-
-			*/
-			
-		 
-
-
-	
-
-	get(child(dbRef, `datos_auto/`)).then((snapshot) => {
-        if (snapshot.exists()) {
-          console.log(snapshot.val());
-		  app.innerText = snapshot.val();
-        } else {
+        })
+		         } else {
           console.log("No data available");
+         
         }
       }).catch((error) => {
         console.error(error);
