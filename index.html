@@ -159,9 +159,36 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		td4.innerHTML = Modo;
 		td5.innerHTML = Bytes_adicionales;
 		td6.innerHTML = PID;
+
+		switch (PID) {
+		case 0:
+		td7.innerHTML = "PIDs implementados \n 0x01 al 0x20";
+		break;
+		case 5:
+		td7.innerHTML = "Temperatura del líquido de enfriamiento del motor";
+		break;
+		
+		case 12:
+		td7.innerHTML = "RPM del motor";
+		break;
+
+		case 13:
+		td7.innerHTML = "Velocidad del vehículo";
+		break;
+
+		case 15:
+		td7.innerHTML = "Temperatura del aire del colector de admisión";
+		break;	
+		
+		default:
+		td7.innerHTML = "Velocidad del flujo del aire MAF"
+		break;
+		}
+	
+
 		if(PID == 0){
 			console.log("Pids consultados del 0x01 al 0x20");
-			td7.innerHTML = "Pids consultados del 0x01 al 0x20";
+			
 	   }
 	   else{
 		td7.innerHTML = "";
