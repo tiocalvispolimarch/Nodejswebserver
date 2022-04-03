@@ -156,7 +156,13 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		td3.innerHTML = Identificador;
 		td4.innerHTML = Modo;
 		td5.innerHTML = Bytes_adicionales;
+		if(PID == 0){
+			console.log("Pids consultados del 0x01 al 0x20");
+			td6.innerHTML = "Pids consultados del 0x01 al 0x20";
+	   }
+	   else{
 		td6.innerHTML = PID;
+	   }
 		td7.innerHTML = ByteA;
 		td8.innerHTML = ByteB;
 		td9.innerHTML = ByteC;
@@ -178,9 +184,8 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		trow.appendChild(td11);
 		trow.appendChild(td12);
 		tbody.appendChild(trow);
-       if(PID == 0)
-			console.log("Pids consultados del 0x01 al 0x20");
-        })
+       
+		})
 		         } else {
           console.log("No data available");
          
