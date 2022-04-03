@@ -178,8 +178,8 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		trow.appendChild(td11);
 		trow.appendChild(td12);
 		tbody.appendChild(trow);
-       
-
+       if(PID == 0)
+			console.log("Pids consultados del 0x01 al 0x20");
         })
 		         } else {
           console.log("No data available");
