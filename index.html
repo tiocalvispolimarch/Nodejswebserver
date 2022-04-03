@@ -59,6 +59,7 @@
 			<th>Modo 1</th>
 			<th>Bytes adicionales</th>
 			<th>PID</th>
+			<th>Sensor</th>
 			<th>Byte A</th>
 			<th>Byte B</th>
 			<th>Byte C</th>  
@@ -135,6 +136,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		var ByteD = data.val().Byte_D;
 		var Dato8 = data.val().Dato8;
 		var GPS = data.val().GPS;
+		
 
    	    let trow = document.createElement('tr');
 		let td1 = document.createElement('td');
@@ -149,19 +151,20 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
   		let td10 = document.createElement('td');
 		let td11 = document.createElement('td');
 		let td12 = document.createElement('td');
-		
+		let td13 = document.createElement('td');
 
 		td1.innerHTML = ++stdNo;
 		td2.innerHTML = ID_Auto;
 		td3.innerHTML = Identificador;
 		td4.innerHTML = Modo;
 		td5.innerHTML = Bytes_adicionales;
+		td6.innerHTML = PID;
 		if(PID == 0){
 			console.log("Pids consultados del 0x01 al 0x20");
-			td6.innerHTML = "Pids consultados del 0x01 al 0x20";
+			td7.innerHTML = "Pids consultados del 0x01 al 0x20";
 	   }
 	   else{
-		td6.innerHTML = PID;
+		td7.innerHTML = "";
 	   }
 		td7.innerHTML = ByteA;
 		td8.innerHTML = ByteB;
