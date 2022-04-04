@@ -81,6 +81,20 @@
 
 <script  type="module">
 
+$(document).ready(function () {
+  $('#dtHorizontalVerticalExample').DataTable({
+    "scrollX": true,
+    "scrollY": 200,
+  });
+  $('.dataTables_length').addClass('bs-select');
+});$(document).ready(function () {
+  $('#dtHorizontalVerticalExample').DataTable({
+    "scrollX": true,
+    "scrollY": 200,
+  });
+  $('.dataTables_length').addClass('bs-select');
+});
+
 	
 import { getDatabase, ref, child, get  } 
   from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
