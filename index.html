@@ -164,20 +164,24 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		td6.innerHTML = PID;
 
 		switch (PID) {
+		
+		
 		case 0:
 		td7.innerHTML = "PIDs implementados 0x01 al 0x20";
 		break;
-		case 5:
 
-		valores = 0;	
+		case 5:
 		td7.innerHTML = "Temperatura del líquido de enfriamiento del motor";
+		valores = 0;
 		valores = ByteA - 40;
 		td8.innerHTML = valores + "°C";
-
 		break;
 		
 		case 12:
 		td7.innerHTML = "RPM del motor";
+		valores = 0;
+		valores = (256*ByteA + ByteB)/4;
+		td8.innerHTML = valores + "rpm";
 		break;
 
 		case 13:
