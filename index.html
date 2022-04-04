@@ -30,26 +30,51 @@
 
 
  <style>
-	.demo {
-		border:1px sólido #0B0A0A;
-		border-collapse:colapso;
-		padding:5px;
-	}
-	.demo caption {
-		text-align:centrar;
-	}
-	.demo th {
-		border:1px sólido #0B0A0A;
-		padding:5px;
-		background:#53B1F9;
-	}
-	.demo td {
-		border:1px sólido #0B0A0A;
-		padding:5px;
-	}
+	table.blueTable {
+  border: 2px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 2px solid #191717;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 14px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #AFCFF5;
+}
+table.blueTable thead {
+  background: #43A0F7;
+  background: -moz-linear-gradient(top, #72b8f9 0%, #55a9f7 66%, #43A0F7 100%);
+  background: -webkit-linear-gradient(top, #72b8f9 0%, #55a9f7 66%, #43A0F7 100%);
+  background: linear-gradient(to bottom, #72b8f9 0%, #55a9f7 66%, #43A0F7 100%);
+  border-bottom: 2px solid #314444;
+}
+table.blueTable thead th {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0F0F0F;
+}
+table.blueTable tfoot td {
+  font-size: 13px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
 </style>
 <div>
-	<table id="demo">
+	<table class="blueTable">
 		<caption>Datos CAN bus 2022</caption>
 		<thead>
 		
