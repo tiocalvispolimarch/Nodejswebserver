@@ -60,6 +60,7 @@
 			<th>Bytes adicionales</th>
 			<th>PID</th>
 			<th>Sensor</th>
+			<th>Valor</th>
 			<th>Byte A</th>
 			<th>Byte B</th>
 			<th>Byte C</th>  
@@ -128,7 +129,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		var Modo = data.val().Modo;
 		var Bytes_adicionales = data.val().Bytes_adicionales;
 		var PID = data.val().PID;
-		
+		var valores;
 
 		var ByteA = data.val().Byte_A;
 		var ByteB = data.val().Byte_B;
@@ -152,6 +153,8 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		let td11 = document.createElement('td');
 		let td12 = document.createElement('td');
 		let td13 = document.createElement('td');
+		let td14 = document.createElement('td');	
+		
 
 		td1.innerHTML = ++stdNo;
 		td2.innerHTML = ID_Auto;
@@ -165,7 +168,12 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		td7.innerHTML = "PIDs implementados 0x01 al 0x20";
 		break;
 		case 5:
+
+		valores = 0;	
 		td7.innerHTML = "Temperatura del líquido de enfriamiento del motor";
+		valores = ByteA - 40;
+		td8.innerHTML = valores + "°C";
+
 		break;
 		
 		case 12:
@@ -187,12 +195,12 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 	
 
 		
-		td8.innerHTML = ByteA;
-		td9.innerHTML = ByteB;
-		td10.innerHTML = ByteC;
-		td11.innerHTML = ByteD;
-		td12.innerHTML = Dato8;
-		td13.innerHTML = GPS;
+		td9.innerHTML = ByteA;
+		td10.innerHTML = ByteB;
+		td11.innerHTML = ByteC;
+		td12.innerHTML = ByteD;
+		td13.innerHTML = Dato8;
+		td14.innerHTML = GPS;
 		
 
 		trow.appendChild(td1);
@@ -208,6 +216,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		trow.appendChild(td11);
 		trow.appendChild(td12);
 		trow.appendChild(td13);
+		trow.appendChild(td14);
 		tbody.appendChild(trow);
        
 		})
