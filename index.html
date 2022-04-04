@@ -186,14 +186,23 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 
 		case 13:
 		td7.innerHTML = "Velocidad del vehículo";
+		valores = 0;
+		valores = ByteA;
+		td8.innerHTML = valores + "km/h";
 		break;
 
 		case 15:
 		td7.innerHTML = "Temperatura del aire del colector de admisión";
+		valores = 0;
+		valores = ByteA - 40;
+		td8.innerHTML = valores + "°C";		
 		break;	
 		
 		default:
-		td7.innerHTML = "Velocidad del flujo del aire MAF"
+		td7.innerHTML = "Velocidad del flujo del aire MAF";
+		valores = 0;
+		valores = (256*ByteA + ByteB)/100;
+		td8.innerHTML = valores + "gr/sec";
 		break;
 		}
 	
