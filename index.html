@@ -274,7 +274,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
         console.error(error);
       });
 
-	 var rpm_data = [203,156,99,251,305,247];
+	 var rpm_data = [203,156];
 	  var buyerData = {
   	labels : ["January","February","March","April","May","June"],
   	datasets : [  
@@ -283,7 +283,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
   			strokeColor : "#ACC26D",
   			pointColor : "#fff",
   			pointStrokeColor : "#9DB86D",
-  			data : ByteA
+  			data : rpm_data
   			
   		}
   	]
