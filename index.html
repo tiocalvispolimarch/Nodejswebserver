@@ -149,7 +149,7 @@ import { getDatabase, ref, child, get  }
 	
   const db = ref(getDatabase());
   	var  stdNo = 0;	
-     
+    var i = 0; 
 get(child(db, `datos_auto/`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
@@ -162,7 +162,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		var Modo = data.val().Modo;
 		var Bytes_adicionales = data.val().Bytes_adicionales;
 		var PID = data.val().PID;
-		var valores;
+		var valores = [];
 
 		var ByteA = data.val().Byte_A;
 		var ByteB = data.val().Byte_B;
@@ -205,9 +205,9 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 
 		case 5:
 		td7.innerHTML = "Temperatura del líquido de enfriamiento del motor";
-		valores = 0;
-		valores = ByteA - 40;
-		td8.innerHTML = valores + "°C";
+		valores[i] = 0;
+		valores[i]  = ByteA - 40;
+		td8.innerHTML = valores[i]  + "°C";
 		break;
 		
 		case 12:
@@ -264,7 +264,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		trow.appendChild(td13);
 		trow.appendChild(td14);
 		tbody.appendChild(trow);
-       
+        i++;
 		})
 		         } else {
           console.log("No data available");
@@ -283,7 +283,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
   			strokeColor : "#ACC26D",
   			pointColor : "#fff",
   			pointStrokeColor : "#9DB86D",
-  			data : rpm_data
+  			data : valores
   			
   		}
   	]
