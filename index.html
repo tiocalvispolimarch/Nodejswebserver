@@ -83,14 +83,7 @@ table.blueTable tfoot .links a{
   border-radius: 5px;
 }
 </style>
-<script>
-	function ExporttoExcel(fileExtension,fileName)
-{
-	var elt = document.getElementById("blueTable");
-	var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
-	return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
-}
-</script>
+
 
 
 <div>
@@ -292,6 +285,13 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
         console.error(error);
       });
 
+	
+	function ExporttoExcel(fileExtension,fileName)
+{
+	var elt = document.getElementById("blueTable");
+	var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
+	return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
+}
 
 
 
