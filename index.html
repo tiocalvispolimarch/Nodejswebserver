@@ -89,6 +89,19 @@ table.blueTable tfoot .links a{
 <div>
 	<table class="blueTable"  id = "tablacan">
 		<caption>Datos CAN bus 2022</caption> 
+
+		<button id = "botonexcel" onclick="ExporttoExcel('xlsx','Datos_CANbus')">Exportar a excel</button>
+		<script>
+		function ExporttoExcel(fileExtension,fileName)
+		{			
+			var elt = document.getElementById("tablacan");
+			var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
+			return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
+		}
+
+</script>
+
+
 		<thead>
 		
 			<th>Número</th>
@@ -291,16 +304,6 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 //	window.onload = SelectAllData;
 	
 	
-</script>
-<button id = "botonexcel" onclick="ExporttoExcel('xlsx','myfirtssheet')">Exportar a excel</button>
-<script>
-		function ExporttoExcel(fileExtension,fileName)
-{
-	var elt = document.getElementById("tablacan");
-	var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
-	return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
-}
-
 </script>
 
 </body>
