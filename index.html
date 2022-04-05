@@ -86,7 +86,7 @@ table.blueTable tfoot .links a{
 <script>
 	function ExporttoExcel(fileExtension,fileName)
 {
-	var el = document.getElementById("blueTable");
+	var elt = document.getElementById("blueTable");
 	var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
 	return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
 }
