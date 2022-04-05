@@ -85,12 +85,37 @@ table.blueTable tfoot .links a{
 </style>
 
 
+<style>
+	.button {
+	  display: inline-block;
+	  padding: 15px 25px;
+	  font-size: 24px;
+	  cursor: pointer;
+	  text-align: center;
+	  text-decoration: none;
+	  outline: none;
+	  color: #000;
+	  background-color: #65A2FA;
+	  border: none;
+	  border-radius: 15px;
+	  box-shadow: 0 9px #999;
+	}
+	
+	.button:hover {background-color: #1C6CDE}
+	
+	.button:active {
+	  background-color: #0A54BF;
+	  box-shadow: 0 5px #666;
+	  transform: translateY(4px);
+	}
+</style>
+
 
 <div>
 	<table class="blueTable"  id = "tablacan">
 		<caption>Datos CAN bus 2022</caption> 
 
-		<button id = "botonexcel" onclick="ExporttoExcel('xlsx','Datos_CANbus')">Exportar a Excel</button>
+		<button class="button" id = "botonexcel" onclick="ExporttoExcel('xlsx','Datos_CANbus')">Exportar a Excel</button>
 		<script>
 		function ExporttoExcel(fileExtension,fileName)
 		{			
