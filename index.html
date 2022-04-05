@@ -87,7 +87,7 @@ table.blueTable tfoot .links a{
 
 
 <div>
-	<table class="blueTable">
+	<table class="blueTable"  id = "tablacan">
 		<caption>Datos CAN bus 2022</caption> 
 		<thead>
 		
@@ -296,7 +296,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 <script>
 		function ExporttoExcel(fileExtension,fileName)
 {
-	var elt = document.getElementById("blueTable");
+	var elt = document.getElementById("tablacan");
 	var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
 	return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
 }
