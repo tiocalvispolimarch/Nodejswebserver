@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 
-<script data-require="chart.js@*" data-semver="1.0.2" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-<link rel="stylesheet" href="style.css" />
-<script src="script.js"></script>
-
-<canvas id="buyers" width="600" height="400"></canvas>
 
 <html lang="en">
 <head>
@@ -149,7 +144,7 @@ import { getDatabase, ref, child, get  }
 	
   const db = ref(getDatabase());
   	var  stdNo = 0;	
-    var i = 0; 
+    
 get(child(db, `datos_auto/`)).then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
@@ -205,9 +200,9 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 
 		case 5:
 		td7.innerHTML = "Temperatura del líquido de enfriamiento del motor";
-		valores[i] = 0;
-		valores[i]  = ByteA - 40;
-		td8.innerHTML = valores[i]  + "°C";
+		valores = 0;
+		valores  = ByteA - 40;
+		td8.innerHTML = valores  + "°C";
 		break;
 		
 		case 12:
@@ -264,7 +259,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		trow.appendChild(td13);
 		trow.appendChild(td14);
 		tbody.appendChild(trow);
-        i++;
+    
 		})
 		         } else {
           console.log("No data available");
@@ -274,36 +269,8 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
         console.error(error);
       });
 
-	 var rpm_data = [203,156];
-	  var buyerData = {
-  	labels : ["January","February","March","April","May","June"],
-  	datasets : [  
-  		{
-  			fillColor : "rgba(172,194,132,0.4)",
-  			strokeColor : "#ACC26D",
-  			pointColor : "#fff",
-  			pointStrokeColor : "#9DB86D",
-  			data : valores
-  			
-  		}
-  	]
-  }
 
-  var buyers = document.getElementById('buyers').getContext('2d');
-  new Chart(buyers).Line(buyerData, {
-    animation: true,
-    animationSteps: 100,
-    animationEasing: "easeOutQuart",
-    scaleFontSize: 16,
-    responsive: true,
-    showTooltip: true,
-    tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
-    
-    scaleShowGridLines : false,
-    bezierCurve : false,
-    pointDotRadius : 5,
 
-  });
 
 //	window.onload = SelectAllData;
 	
