@@ -85,7 +85,7 @@ table.blueTable tfoot .links a{
 <div>
 	<table class="blueTable">
 		<caption>Datos CAN bus 2022</caption>
-		<button id = "botonexcel">Exportar a excel</button>
+		<button id = "botonexcel" onclick="ExporttoExcel('xlsx','myfirtssheet')">Exportar a excel</button>
 		<thead>
 		
 			<th>Número</th>
@@ -152,6 +152,15 @@ import { getDatabase, ref, child, get  }
 	
   const db = ref(getDatabase());
   	var  stdNo = 0;	
+
+function ExporttoExcel(fileExtension,fileName)
+{
+	var el = document.getElementById("blueTable");
+	var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
+	return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
+}
+
+
     
 get(child(db, `datos_auto/`)).then((snapshot) => {
         if (snapshot.exists()) {
