@@ -82,6 +82,16 @@ table.blueTable tfoot .links a{
   border-radius: 5px;
 }
 </style>
+<script>
+	function ExporttoExcel(fileExtension,fileName)
+{
+	var el = document.getElementById("blueTable");
+	var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
+	return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
+}
+</script>
+
+
 <div>
 	<table class="blueTable">
 		<caption>Datos CAN bus 2022</caption>
@@ -153,12 +163,7 @@ import { getDatabase, ref, child, get  }
   const db = ref(getDatabase());
   	var  stdNo = 0;	
 
-function ExporttoExcel(fileExtension,fileName)
-{
-	var el = document.getElementById("blueTable");
-	var wb = XLSX.utils.table_to_book(elt,{sheet: "sheet1"});
-	return XLSX.writeFile(wb, fileName+"."+fileExtension || ('MySheetName.' + (fileExtension || 'xlsx')));
-}
+
 
 
     
