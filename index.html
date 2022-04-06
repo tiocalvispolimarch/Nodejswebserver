@@ -132,8 +132,8 @@ table.blueTable tfoot .links a{
 			<th>Número</th>
 			<th>ID Auto</th>
 			<th>Identificador</th>
-			<th>Modo 1</th>
 			<th>Bytes adicionales</th>
+			<th>Modo 1</th>
 			<th>PID</th>
 			<th>Sensor</th>
 			<th>Valor</th>
@@ -207,8 +207,8 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
    		var  tbody = document.getElementById('tbody1');
 		var ID_Auto = data.val().ID_Auto;
 		var Identificador = data.val().Identificador;
-		var Modo = data.val().Modo;
 		var Bytes_adicionales = data.val().Bytes_adicionales;
+		var Modo = data.val().Modo;
 		var PID = data.val().PID;
 		var valores = [];
 
