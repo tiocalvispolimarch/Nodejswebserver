@@ -295,7 +295,50 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		td12.innerHTML = ByteD;
 		td13.innerHTML = Dato8;
 		td14.innerHTML = GPS;
-		
+		var Cadena = GPS;
+
+		var inicio=0;
+  var fin=Cadena.indexOf(',',inicio);
+  var aux,date,tm;
+  var year,mes,dia,hr,mn,sg;
+  aux = Cadena.substring(inicio, fin); 
+
+  inicio = fin+1;
+  fin = Cadena.indexOf(',', inicio);  
+  aux = Cadena.substring(inicio, fin); 
+  
+  
+  inicio = fin+1;
+  fin = Cadena.indexOf(',', inicio);
+  aux = Cadena.substring(inicio, fin); 
+  
+
+  inicio = fin+1;
+  fin = Cadena.indexOf(',', inicio);
+  aux = Cadena.substring(inicio, fin); 
+  
+
+  inicio = fin+1;
+  fin = Cadena.indexOf(',', inicio);
+  date = Cadena.substring(inicio, fin); 
+ console.log(date);
+  dia = date.substring(0,2);
+  mes = date.substring(2,4);
+  year = date.substring(4,6);
+  console.log('20'+ year);
+ console.log(mes);
+ console.log(dia);
+
+ inicio = fin+1;
+  fin = Cadena.indexOf(',', inicio);
+  tm = Cadena.substring(inicio, fin); 
+  console.log(tm);
+  hr = tm.substring(0,2);
+  mn = tm.substring(2,4);
+  sg = tm.substring(4,6);
+  console.log(hr);
+  console.log(mn);
+  console.log(sg);
 
 		trow.appendChild(td1);
 		trow.appendChild(td2);
