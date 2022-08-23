@@ -341,8 +341,8 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
   year = date.substring(4,6);
   
   td15.innerHTML = '20'+ year;
-  td15.innerHTML = mes;
- console.log(dia);
+  td16.innerHTML = mes;
+  td17.innerHTML = dia;
 
  inicio = fin+1;
   fin = Cadena.indexOf(',', inicio);
@@ -351,9 +351,9 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
   hr = tm.substring(0,2);
   mn = tm.substring(2,4);
   sg = tm.substring(4,6);
-  console.log(hr-5);
-  console.log(mn);
-  console.log(sg);
+  td18.innerHTML = hr-5;
+  td19.innerHTML = mn;
+  td20.innerHTML = sg;
 
 		trow.appendChild(td1);
 		trow.appendChild(td2);
