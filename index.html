@@ -143,6 +143,13 @@ table.blueTable tfoot .links a{
 			<th>Byte D</th>
 			<th>Dato 8</th>
 			<th>GPS</th>
+			<th>Año</th>
+			<th>Mes</th>
+			<th>Día</th>
+			<th>Hora</th>
+			<th>Minuto</th>
+			<th>Segundo</th>
+
 		</thead>
 		<tbody id="tbody1"></tbody>
 	</table>
@@ -336,7 +343,7 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
   hr = tm.substring(0,2);
   mn = tm.substring(2,4);
   sg = tm.substring(4,6);
-  console.log(hr);
+  console.log(hr-5);
   console.log(mn);
   console.log(sg);
 
