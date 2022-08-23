@@ -241,7 +241,14 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		let td11 = document.createElement('td');
 		let td12 = document.createElement('td');
 		let td13 = document.createElement('td');
-		let td14 = document.createElement('td');	
+		let td14 = document.createElement('td');
+		let td15 = document.createElement('td');
+		let td16 = document.createElement('td');
+		let td17 = document.createElement('td');
+		let td18 = document.createElement('td');
+		let td19 = document.createElement('td');
+  		let td20 = document.createElement('td');
+			
 		
 
 		td1.innerHTML = ++stdNo;
@@ -332,7 +339,8 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
   dia = date.substring(0,2);
   mes = date.substring(2,4);
   year = date.substring(4,6);
-  console.log('20'+ year);
+  
+  td15.innerHTML = '20'+ year;
  console.log(mes);
  console.log(dia);
 
