@@ -307,8 +307,28 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		td8.innerHTML = valores + " %";		
 		break;	
 		
-		default:
+		case 20:
 		td7.innerHTML = "PID implementados [21 - 40]";
+		valores = 0;
+		td8.innerHTML = valores;
+		break;
+
+		case 30:
+		td7.innerHTML = "Cantidad de calentamientos desde que se borraron los fallas";
+		valores = 0;
+		valores = ByteA;
+		td8.innerHTML = valores + " gr/sec";
+		break;
+
+		case 31:
+		td7.innerHTML = "Distancia recorrida desde que se borraron los fallas";
+		valores = 0;
+		valores = ByteA*256 + ByteB;
+		td8.innerHTML = valores + " %";		
+		break;	
+		
+		default:
+		td7.innerHTML = "PID implementados [41 - 60]";
 		valores = 0;
 		td8.innerHTML = valores;
 		break;
