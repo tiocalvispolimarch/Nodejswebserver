@@ -327,9 +327,30 @@ get(child(db, `datos_auto/`)).then((snapshot) => {
 		td8.innerHTML = valores + " km";		
 		break;	
 		
-		default:
+		case 64:
 		td7.innerHTML = "PID implementados [41 - 60]";
 		valores = 0;
+		td8.innerHTML = valores;
+		break;
+
+		case 66:
+		td7.innerHTML = "Voltaje del módulo de control";
+		valores = 0;
+		valores =  (256*ByteA + ByteB)/1000;
+		td8.innerHTML = valores + " V";
+		break;
+
+		case 67:
+		td7.innerHTML = "Valor absoluta de carga";
+		valores = 0;
+		valores = (ByteA*256 + ByteB)/2.55;
+		td8.innerHTML = valores + " %";		
+		break;	
+		
+		default:
+		td7.innerHTML = "Relación equivaliente comandada de combustible - aire";
+		valores = 0;
+		valores = (ByteA*256 + ByteB)/32768;
 		td8.innerHTML = valores;
 		break;
 		}
